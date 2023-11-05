@@ -4,7 +4,7 @@ This repository contains a PySpark script for processing data from the VIX.csv d
 
 ## Dataset
 
-The `VIX.csv` file is expected to contain historical data for the Volatility Index (VIX). It includes columns for dates, opening prices, closing prices, highs, lows, and possibly other financial indicators.
+The `VIX.csv` file contains 5-year daily historical data for the Volatility Index (VIX). It includes columns for dates, opening prices, closing prices, highs, lows, and possibly other financial indicators.
 
 ## Script
 
@@ -13,7 +13,7 @@ The `main.py` file is a PySpark script that performs data loading, transformatio
 ### Transformations
 he script includes the following data transformations:
 - Calculation of the daily range (the difference between the day's high and low prices)
-- Export the new dataframe with daily range column to folder 'transformed_VIX_DailyRange.csv'
+- Export the new dataframe with daily range column to folder `transformed_VIX_DailyRange.csv`
 
 ### Analysis
 The script performs analysis using Spark SQL, including:
@@ -26,7 +26,7 @@ To run the script, you need to have PySpark installed and properly configured. T
 ```bash
 spark-submit main.py
 ```
- or
+ or in the terminal of the root directory
  ```bash
  python main.py
  ```
