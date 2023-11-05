@@ -1,3 +1,4 @@
+[![CI](https://github.com/nogibjj/Mini_Project10_LinHui/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Mini_Project10_LinHui/actions/workflows/cicd.yml)
 # PySpark Data Processing
 
 This repository contains a PySpark script for processing data from the VIX.csv dataset.
