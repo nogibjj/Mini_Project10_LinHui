@@ -1,19 +1,26 @@
-"""
-Main cli or app entry point
-"""
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 
-from mylib.calculator import add
-import click
+spark = SparkSession.builder \
+    .appName("VIXDataProcessing") \
+    .getOrCreate()
 
-#var=1;var=2
+vix_df = spark.read.csv("VIX.csv", header=True, inferSchema=True)
 
-@click.command("add")
-@click.argument("a", type=int)
-@click.argument("b", type=int)
-def add_cli(a, b):
-    click.echo(add(a, b))
+# Data transformation
+vix_df = vix_df.withColumn("DailyRange", col("High") - col("Low"))
+vix_df.show()
 
+vix_df.createOrReplaceTempView("vix_data")
 
-if __name__ == "__main__":
-    # pylint: disable=no-value-for-parameter
-    add_cli()
+# Sprak SQL
+average_daily_range_df = spark.sql("""
+    SELECT AVG(DailyRange) as AverageDailyRange
+    FROM vix_data
+""")
+
+average_daily_range_df.show()
+
+vix_df.write.csv("transformed_VIX_DailyRange.csv", header=True)
+
+spark.stop()

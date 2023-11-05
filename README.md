@@ -1,19 +1,32 @@
-This is a template for course IDS706 Projects. It contains:
+# PySpark Data Processing
 
-1. `.devcontainer` includes a Dockerfile and devcontainer.json. The 'Dockerfile' within this folder specifies how the container should be built, and other settings in this directory may control development environment configurations.
+This repository contains a PySpark script for processing data from the VIX.csv dataset.
 
-2. `workflows` includes GitHub Actions, which contain configuration files for setting up automated build, test, and deployment pipelines for your project.
+## Dataset
 
-3. `.gitignore` is used to specify which files or directories should be excluded from version control when using Git.
+The `VIX.csv` file is expected to contain historical data for the Volatility Index (VIX). It includes columns for dates, opening prices, closing prices, highs, lows, and possibly other financial indicators.
 
-4. `Makefile` is a configuration file used in Unix-based systems for automating tasks and building software. It contains instructions and dependencies for compiling code, running tests, and other development tasks.
+## Script
 
-5. `README.md` is the instruction file for the readers.
+The `main.py` file is a PySpark script that performs data loading, transformation, and analysis on the VIX dataset.
 
-6. `requirements.txt` is to specify the dependencies (libraries and packages) required to run the project.
+### Transformations
+he script includes the following data transformations:
+- Calculation of the daily range (the difference between the day's high and low prices)
+- Export the new dataframe with daily range column to folder 'transformed_VIX_DailyRange.csv'
 
-7. `test_main.py` is a test file for main.py that can successfully run in IDEs.
+### Analysis
+The script performs analysis using Spark SQL, including:
+- Calculation of average daily range
 
-8. `main.py` is a Python file.
+## Usage
 
-It used gitbuh actions to test and run. All processes are completed.
+To run the script, you need to have PySpark installed and properly configured. Then you can execute the script in a Spark environment.
+
+```bash
+spark-submit main.py
+```
+ or
+ ```bash
+ python main.py
+ ```

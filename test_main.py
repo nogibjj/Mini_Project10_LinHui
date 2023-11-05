@@ -3,8 +3,7 @@ Test goes here
 
 """
 
-from mylib.calculator import add
 
-
-def test_add():
-    assert add(1, 2) == 3
+def test_pyspark():
+    import pyspark
+    assert pyspark.__version__ == '3.5.0'
