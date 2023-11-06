@@ -31,3 +31,6 @@ spark-submit main.py
  ```bash
  python main.py
  ```
+## Output
+
+<img width="658" alt="Screenshot 2023-11-06 at 18 41 52" src="https://github.com/nogibjj/Mini_Project10_LinHui/assets/83142133/60d3cefb-dd73-4674-b61f-4e0b7e8c4160">
